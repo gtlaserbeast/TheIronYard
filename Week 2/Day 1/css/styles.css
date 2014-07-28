@@ -1,0 +1,22 @@
+img {
+  height: 100px;
+  width: 100px;
+}
+
+div {
+  border: 1px solid red;
+  display: inline-block;
+  position: relative;
+
+}
+
+div.div1{
+  background-color: orange;
+}
+div.div2{
+  background-color: yellow;
+}
+
+span {
+  background: blue;
+}
