@@ -91,7 +91,7 @@ end
       if @spurs == "y"
         #Chance to increase distance covered
         @position += @speed * rand(10)
-        puts "spurred!"
+        #puts "spurred!"
       else
         #Calculating position
         @position += @speed * rand(5)
