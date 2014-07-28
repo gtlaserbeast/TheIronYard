@@ -1,5 +1,3 @@
-
-	
 # Choose one!
 
 # Assignment 1:
@@ -26,8 +24,6 @@
 # Extra bonus.
 
 # Do all of the above - Will buy someone a beer on Friday if they do all of the above.
-
-
 
 # #Assignment #1
 secret_number = rand(1..100)
