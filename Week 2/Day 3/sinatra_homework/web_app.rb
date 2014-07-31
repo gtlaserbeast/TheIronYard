@@ -25,3 +25,7 @@ get '/fake_resume' do
   @phone = Faker::PhoneNumber.cell_phone
   erb :fake_resume, layout: :fake_layout
 end
+
+
+# Inquire about parameter passing in class tomorrow! 
+# This is the one aspect of the homework that escaped me.
