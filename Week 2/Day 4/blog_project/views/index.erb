@@ -1,0 +1,17 @@
+<a href="/create_post"><h1>Create Post</h1></a>
+<br>
+<hr>
+<% @posts.each do |post| %>
+  <a href="/display_post/<%= post.id %>">
+  <%= post.subject %>
+  </a> - 
+  <a href="mailto:<%= post.author_email %>"><%= post.author%></a><br>
+  <h6>Created:
+  <%= post.created_at %> }{ Updated:
+  <%= post.updated_at %></h6>
+  <%= post.content %><br>
+  <!-- <a href="/edit_post/<%= post.id %>" >Edit</a> -->
+  <hr>
+
+  <br>
+<% end %>

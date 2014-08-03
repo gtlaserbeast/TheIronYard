@@ -1,0 +1,20 @@
+<h3><%= @post.author %>'s Post</h3>
+<a href="/">Back</a>
+
+
+<form action="/edit_post/<%= @post.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <label for="author">Messageboard  Username</label>
+  <input type="text" id="author" name="post[author]" value="<%= @post.author %>">
+  <br>
+  <label for="subject">Subject</label>
+  <input type="text" id="subject" name="post[subject]" value="<%= @post.subject %>">
+  <br>
+  <label for="author_email">User e-Mail Address:</label>
+  <input type="text" id="author_email" name="post[author_email]">
+  <br>
+  <label for="content">Post:</label>
+  <textarea id="content" name="post[content]" cols="100" rows="15"><%=@post.content%></textarea>
+  <br>
+  <input type="submit" value="Edit Post">
+</form>
