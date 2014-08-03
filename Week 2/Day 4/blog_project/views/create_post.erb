@@ -1,7 +1,5 @@
 <h3>Let's post to the Messageboard!</h3>
-<a href="/">Back</a>
-
-
+<hr>
 <form action="/create_post" method="post">
   <label for="author">Username:</label>
   <input type="text" id="author" name="post[author]">
@@ -12,9 +10,10 @@
   <label for="author_email">User e-Mail Address:</label>
   <input type="text" id="author_email" name="post[author_email]">
   <br>
-  <label for="content">Post:</label>
+  <label for="content">Post:</label><br>
   <textarea id="content" name="post[content]" cols="100" rows="15" placeholder="Document your thoughts here!"></textarea>
   <br>
   <input type="submit" value="Create Post">
 </form>
 <hr>
+<a href="/">Back</a>
