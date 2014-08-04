@@ -3,7 +3,9 @@
 <hr>
 <% @posts.each do |post| %>
   <a href="/display_post/<%= post.id %>">
-  <%= post.subject %>
+    <!-- included an img because my griefer friend broke my edit link by not including a subject -->
+    <img src="/img/post_it.png" height=20px alt="<%= post.subject %>">
+    <%= post.subject %>
   </a> - 
   <a href="mailto:<%= post.author_email %>"><%= post.author%></a><br>
   <h6>Created:
