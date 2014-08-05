@@ -3,10 +3,10 @@
 <ul>
   <% @games.each do |game| %>
   <li>
-    <%=link_to game.title, game_path(game)%> | 
-    <%=game.genre%> | 
-    <%=game.description%> | 
-    <%= link_to "Edit", edit_game_path(game.id) %> | 
+    <%=link_to game.title, game_path(game)%> :  
+    <%=game.genre%> : 
+    <%=game.description%> : 
+    <%= link_to "Edit", edit_game_path(game.id) %> : 
     <%= link_to "Delete", game_path(game), method: :delete %>
   </li>
   <% end %>
