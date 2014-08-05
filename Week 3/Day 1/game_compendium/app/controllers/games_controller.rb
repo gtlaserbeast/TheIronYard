@@ -1,4 +1,7 @@
 class GamesController < ApplicationController
+
+  before_action :find_food, only: [:show, :edit, :update, :destroy]
+
   def new
     @game = Game.new
   end
@@ -9,11 +12,11 @@ class GamesController < ApplicationController
   end
 
   def edit
-    @game = Game.find params[:id]
+    
   end
 
   def update
-    @game = Game.find params[:id]
+    
     @game.update_attributes game_params
     redirect_to root_path
   end
@@ -23,12 +26,17 @@ class GamesController < ApplicationController
   end
 
   def destroy
-    @game = Game.find params[:id]
+    
     @game.delete
     redirect_to root_path
   end
 
 private
+
+  def find_food
+    @food = Food.find params[:id]
+  end
+
   def game_params
     params.require(:game).permit(:title, :genre, :description)
   end
