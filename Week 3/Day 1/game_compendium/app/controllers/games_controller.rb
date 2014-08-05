@@ -1,14 +1,18 @@
 class GamesController < ApplicationController
 
-  before_action :find_food, only: [:show, :edit, :update, :destroy]
+  before_action :find_game, only: [:show, :edit, :update, :destroy]
 
   def new
     @game = Game.new
   end
 
   def create
-    Game.create game_params
-    redirect_to root_path
+    @game = Game.create game_params
+    if @game.save == true
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -16,9 +20,12 @@ class GamesController < ApplicationController
   end
 
   def update
+    if @game.update_attributes game_params
+      redirect_to root_path
+    else 
+      render :edit
+    end
     
-    @game.update_attributes game_params
-    redirect_to root_path
   end
 
   def show
@@ -33,8 +40,8 @@ class GamesController < ApplicationController
 
 private
 
-  def find_food
-    @food = Food.find params[:id]
+  def find_game
+    @game = Game.find params[:id]
   end
 
   def game_params
