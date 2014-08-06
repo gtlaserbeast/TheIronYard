@@ -20,7 +20,7 @@
   <%= f.text_field :gender %>
   <br>
   <%= f.label :birth %>
-  <%= f.date_field :birth %>
+  <%= f.date_field :birth, :value => Date.today %>
   <br>
   <%= f.label :diagnosis, "Provide a brief diagnosis." %>
   <%= f.text_field :diagnosis%>
