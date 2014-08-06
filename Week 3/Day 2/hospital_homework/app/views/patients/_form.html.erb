@@ -16,8 +16,10 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
   <br>
-  <%= f.label :gender %>
-  <%= f.text_field :gender %>
+  <%= f.radio_button :gender, 'Male', :checked => true %> 
+  <%= label :gender_male, 'Male' %>
+  <%= f.radio_button :gender, 'Female' %>
+  <%= label :gender_female, 'Female' %>
   <br>
   <%= f.label :birth %>
   <%= f.date_field :birth, :value => Date.today %>
