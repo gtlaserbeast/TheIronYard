@@ -2,7 +2,7 @@ class Patient < ActiveRecord::Base
   validate :birth_cannot_be_in_the_future
 
   def birth_cannot_be_in_the_future
-    unless (birth < Date.today) && birth.instance_of?(Date)
+    unless (birth <= Date.today) && birth.instance_of?(Date)
       errors.add(:birth, "DoB can't be in the future!") 
     end
   end
