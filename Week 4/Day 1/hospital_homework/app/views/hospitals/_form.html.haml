@@ -1,0 +1,22 @@
+= link_to "Back", root_path
+= form_for @hospital do |f|
+  - if  f.object.errors.messages.length > 0
+    / Renders errors to user
+    - f.object.errors.messages.inspect
+    %br/
+    - f.object.errors.messages.each do |key, value|
+      - value.each do |message|
+        = key.capitalize
+        = message
+        %br/
+      %br/
+  = f.label :name
+  = f.text_field :name
+  %br/
+  = f.label :description, "Provide a brief description of the hospital."
+  = f.text_field :description
+  %br/
+  = f.label :capacity
+  = f.number_field :capacity
+  %br/
+  = f.submit "Save Hospital"
