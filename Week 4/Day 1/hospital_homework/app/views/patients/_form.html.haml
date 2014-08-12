@@ -1,4 +1,4 @@
-= link_to "Back", @hospital_path(@hospital, @patient)
+= link_to "Back", @hospital
 = form_for [@hospital, @patient] do |f|
   - if  f.object.errors.messages.length > 0
     / Renders errors to user

@@ -3,6 +3,8 @@ class PatientsController < ApplicationController
   before_action :find_hospital
   def new
     @patient = Patient.new
+    @medications = Medication.all
+    @doctors = Doctor.all
   end
   def create
     @patient = @hospital.patients.new(patient_params)
