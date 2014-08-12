@@ -43,11 +43,11 @@ Status:
 = form_for @doctor, url: create_doctor_hospital_patient_path(@hospital, @patient) do |f|
   = f.label :name
   %br
-  = f.text_area :name
+  = f.text_field :name
   %br
   = f.label :speciality
   %br
-  = f.text_area :speciality
+  = f.text_field :speciality
   %br
   = f.submit
 
