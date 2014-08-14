@@ -29,7 +29,7 @@ class HospitalsController < ApplicationController
   end
   def destroy
     @hospital.delete
-    redirect_to hospital_path(@hospital)
+    redirect_to hospitals_path
   end
   private
     def find_hospital
