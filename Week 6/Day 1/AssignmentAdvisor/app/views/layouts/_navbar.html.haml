@@ -5,6 +5,8 @@
     = link_to "Locations", locations_path
   %li
     = link_to "Courses", courses_path
+  %li
+    = link_to "Cohorts", cohorts_path
   - if current_user.try(:admin?)
     %li.dropdown
       %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
@@ -26,7 +28,7 @@
         %li
           %a{:href => "#"} One more separated link
 
-%ul.nav.navbar-nav.navbar-right
+%ul.nav.navbar-nav.navbar-right.navbar
   - if current_user
     %li
       = link_to "#{current_user.email}", edit_user_registration_path

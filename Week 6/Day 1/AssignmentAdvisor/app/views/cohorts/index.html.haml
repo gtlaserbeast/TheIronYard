@@ -1,0 +1,16 @@
+- if current_user.try(:admin?)
+  = link_to "New Cohort", new_cohort_path
+%ul
+  - @cohorts.each do |cohort|
+    %li
+      %strong
+        = link_to cohort.location.name, location_path(cohort.location)
+      = link_to cohort.course.title, course_path(cohort.course)
+      %ul
+        %li
+          = cohort.course.description
+      - if current_user.try(:admin?)
+        = link_to "Edit", edit_cohort_path(cohort)
+        |
+        = link_to "Delete", cohort_path(cohort), method: :delete
+= link_to "Back", root_path
