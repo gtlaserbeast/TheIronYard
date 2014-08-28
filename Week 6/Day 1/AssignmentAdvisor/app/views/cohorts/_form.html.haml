@@ -1,0 +1,11 @@
+= form_for @cohort do |f|
+  = f.label :start_date
+  = f.date_field :start_date
+  %br
+  = f.label :location_id
+  = f.text_field :location_id
+  %br
+  = f.label :course_id
+  = f.text_field :course_id
+  %br
+  = f.submit

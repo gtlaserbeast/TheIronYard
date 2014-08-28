@@ -1,0 +1,11 @@
+%ul
+  - @locations.each do |location|
+    %li
+      %strong
+        = link_to location.name, location_path(location)
+      = location.address
+      |
+      = link_to "Edit", edit_location_path(location)
+      |
+      = link_to "Delete", location_path(location), method: :delete
+= link_to "Back", root_path
