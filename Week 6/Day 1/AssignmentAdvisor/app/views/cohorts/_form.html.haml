@@ -1,0 +1,21 @@
+= form_for @cohort do |f|
+  - if  f.object.errors.messages.length > 0
+    / Renders errors to user
+    - f.object.errors.messages.inspect
+    %br/
+    - f.object.errors.messages.each do |key, value|
+      - value.each do |message|
+        = key.capitalize
+        = message
+        %br/
+      %br/
+  = f.label :location_id
+  = f.collection_select :location_id, Location.all.each,:id,:name, include_blank: true
+  %br
+  = f.label :course_id
+  = f.collection_select :course_id, Course.all.each,:id,:title, include_blank: true
+  %br
+  = f.label :start_date
+  = f.date_field :start_date
+  %br
+  = f.submit
