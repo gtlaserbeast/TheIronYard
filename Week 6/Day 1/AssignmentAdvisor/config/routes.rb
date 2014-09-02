@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
   devise_for :users, :controllers => { registrations: 'registrations' }
-=======
-  devise_for :users
->>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492
   resources :locations
   resources :courses
   resources :cohorts

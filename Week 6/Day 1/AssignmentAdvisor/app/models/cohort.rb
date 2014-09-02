@@ -2,10 +2,7 @@ class Cohort < ActiveRecord::Base
   belongs_to :location
   belongs_to :course
   has_many :enrollments
-<<<<<<< HEAD
   accepts_nested_attributes_for :location, :course
-=======
->>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492
   has_many :users, through: :enrollments
   has_many :assignments
   def start_date_cannot_be_past

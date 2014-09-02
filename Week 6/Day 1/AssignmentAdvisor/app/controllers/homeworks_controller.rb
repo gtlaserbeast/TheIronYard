@@ -1,5 +1,4 @@
 class HomeworksController < ApplicationController
-<<<<<<< HEAD
   before_action :find_homework, only: [:show, :edit, :update, :destroy]
   def index
     @homeworks = Homework.all
@@ -42,6 +41,4 @@ private
   def find_homework
     @homework = Homework.find params[:id]
   end
-=======
->>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492
 end

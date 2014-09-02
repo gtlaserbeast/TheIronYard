@@ -1,5 +1,4 @@
 class EnrollmentsController < ApplicationController
-<<<<<<< HEAD
   before_action :find_enrollment, only: [:show, :edit, :update, :destroy]
   def index
     @enrollments = Enrollment.all
@@ -42,6 +41,4 @@ private
   def find_enrollment
     @enrollment = Enrollment.find params[:id]
   end
-=======
->>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492
 end

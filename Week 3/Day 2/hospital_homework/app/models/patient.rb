@@ -13,26 +13,3 @@ class Patient < ActiveRecord::Base
   # validates :birth, :timeliness => {:on_or_before => lambda { Date.current }, :type => :date}
   validates :diagnosis, presence: true
 end
-
-# class Invoice < ActiveRecord::Base
-#   validate :expiration_date_cannot_be_in_the_past,
-#     :discount_cannot_be_greater_than_total_value
- 
-#   def expiration_date_cannot_be_in_the_past
-#     if expiration_date.present? && expiration_date < Date.today
-#       errors.add(:expiration_date, "can't be in the past")
-#     end
-#   end
- 
-#   def discount_cannot_be_greater_than_total_value
-#     if discount > total_value
-#       errors.add(:discount, "can't be greater than total value")
-#     end
-#   end
-<<<<<<< HEAD
-# end
-
-
-=======
-# end
->>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492

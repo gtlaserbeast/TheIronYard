@@ -1,5 +1,4 @@
 class AssignmentsController < ApplicationController
-<<<<<<< HEAD
   before_action :find_assignment, only: [:show, :edit, :update, :destroy]
 
   def show
@@ -45,6 +44,4 @@ private
   def find_assignment
     @assignment = Assignment.find params[:id]
   end
-=======
->>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492
 end
