@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140902003629) do
+=======
+ActiveRecord::Schema.define(version: 20140828130915) do
+>>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492
 
   create_table "assignments", force: true do |t|
     t.string   "name"
     t.date     "due_date"
     t.integer  "cohort_id"
+<<<<<<< HEAD
     t.text     "description"
+=======
+    t.string   "description"
+>>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,10 +63,18 @@ ActiveRecord::Schema.define(version: 20140902003629) do
     t.string   "title"
     t.integer  "user_id"
     t.integer  "assignment_id"
+<<<<<<< HEAD
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "links"
+=======
+    t.string   "github_link"
+    t.string   "heroku_link"
+    t.string   "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+>>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492
   end
 
   create_table "locations", force: true do |t|
@@ -82,7 +98,10 @@ ActiveRecord::Schema.define(version: 20140902003629) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin",                  default: false
+<<<<<<< HEAD
     t.string   "name"
+=======
+>>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

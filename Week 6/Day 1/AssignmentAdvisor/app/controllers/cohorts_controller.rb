@@ -20,7 +20,10 @@ class CohortsController < ApplicationController
   end
 
   def show
+<<<<<<< HEAD
     @enrollments = Enrollment.all
+=======
+>>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492
   end
 
   def edit

@@ -47,7 +47,10 @@
           = link_to "to_xray!", to_xray_patient_path(patient), method: :put
           = link_to "to_surgery!", to_surgery_patient_path(patient), method: :put
           = link_to "to_billing!", to_billing_patient_path(patient), method: :put
+<<<<<<< HEAD
           / = link_to "to_billing", transition_patient_path(@patient, event: :to_billing)
+=======
+>>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492
         -when "in_xray"
           = link_to "see_doctor!", see_doctor_patient_path(patient), method: :put
           = link_to "to_waiting!", to_waiting_patient_path(patient), method: :put

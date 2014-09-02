@@ -52,11 +52,14 @@ class PatientsController < ApplicationController
     @patient.leave!
     redirect_to root_path
   end
+<<<<<<< HEAD
   # def transition
   #   event = params[:event]+'!'
   #   @patient.send(event.to_sym)
   #   redirect_to root_path
   # end
+=======
+>>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492
 private
   def find_patient
     @patient = Patient.find params[:id]

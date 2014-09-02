@@ -29,6 +29,10 @@ end
 #       errors.add(:discount, "can't be greater than total value")
 #     end
 #   end
+<<<<<<< HEAD
 # end
 
 
+=======
+# end
+>>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492

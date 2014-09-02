@@ -7,7 +7,10 @@ Rails.application.routes.draw do
       put :to_waiting
       put :to_xray
       put :leave
+<<<<<<< HEAD
       get :transition
+=======
+>>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

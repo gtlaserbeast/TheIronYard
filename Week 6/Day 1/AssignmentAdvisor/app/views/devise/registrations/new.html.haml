@@ -1,7 +1,10 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-signin", role: "form" } ) do |f|
   = devise_error_messages!
   %h2.form-signin-heading Sign up
+<<<<<<< HEAD
   = f.text_field :name, class: "form-control", placeholder: "Name"
+=======
+>>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492
   = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email address"
   = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password"
   = f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Password confirmation"
