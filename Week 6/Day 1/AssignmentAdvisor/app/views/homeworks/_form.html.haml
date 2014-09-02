@@ -1,0 +1,25 @@
+= form_for @homework do |f|
+  - if  f.object.errors.messages.length > 0
+    / Renders errors to user
+    - f.object.errors.messages.inspect
+    %br/
+    - f.object.errors.messages.each do |key, value|
+      - value.each do |message|
+        = key.capitalize
+        = message
+        %br/
+      %br/
+  = f.hidden_field :user_id, :value => current_user.id 
+  = f.label :assignment_id
+  = f.select :assignment_id, Assignment.all.collect {|u| ["#{u.cohort.course.title}, #{u.name}, #{u.description}", u.id]}
+  %br
+  = f.label :title
+  = f.text_field :title
+  %br
+  = f.label :notes
+  = f.text_field :notes
+  %br
+  = f.label :links
+  = f.text_area :links
+  %br
+  = f.submit

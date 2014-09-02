@@ -1,0 +1,19 @@
+= link_to "Back", hospital_patient_path(@hospital, @patient, @medication)
+= form_for [@hospital, @patient, @medication] do |f|
+  - if  f.object.errors.messages.length > 0
+    / Renders errors to user
+    - f.object.errors.messages.inspect
+    %br/
+    - f.object.errors.messages.each do |key, value|
+      - value.each do |message|
+        = key.capitalize
+        = message
+        %br/
+      %br/
+  = f.label :name
+  = f.text_field :name
+  %br/
+  = f.label :description, "Please describe intended usage."
+  = f.text_field :description
+  %br/
+  = f.submit "Save Prescription", :class => "register", :disabled => 'disabled'

@@ -1,0 +1,16 @@
+<h2><%= @post.author %>'s Post</h2>
+<h1><%= @post.subject %></h1>
+<h6><%= @post.author %> -- <a href="mailto:<%= @post.author_email %>"><%= @post.author_email %></a></h6><hr>
+<%= @post.content %><hr>
+  <h6>
+    Created:
+    <%= @post.created_at %>,
+    Updated:
+    <%= @post.updated_at %>.
+  </h6>
+  <a href="/edit_post/<%= @post.id %>" >Edit</a>
+  <form action="/delete_post/<%= @post.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+  </form>
+  <a href="/"><h6>Blog Top</h6></a>

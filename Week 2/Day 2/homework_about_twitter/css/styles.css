@@ -1,0 +1,16 @@
+#topbar {
+position: relative;
+/*z-index: 500;*/
+box-shadow: 0 0 3px #aaa;
+-moz-box-shadow: 0 0 3px #aaa;
+-webkit-box-shadow: 0 0 3px #aaa;
+background: #fff;
+min-height: 40px;
+}
+
+#secondbar {
+background: url(https://g.twimg.com/about/css_resources/CyTAYwl_szmfgWqluHc4AcrBMU-baDMhHqP-3tgpwlA.png) repeat-x #efefef;
+border-top: 1px solid #eee;
+height: auto;
+clear: both;
+}

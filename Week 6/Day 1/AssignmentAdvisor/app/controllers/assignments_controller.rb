@@ -15,6 +15,7 @@ class AssignmentsController < ApplicationController
   def create
     @assignment = Assignment.create assignment_params
     if @assignment.save == true
+      UserMailer.new_assignment_email(@assignment.cohort).deliver
       redirect_to assignments_path
     else
       render :new

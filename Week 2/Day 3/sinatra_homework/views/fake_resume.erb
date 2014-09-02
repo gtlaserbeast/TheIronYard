@@ -1,0 +1,141 @@
+<html>
+<head>
+  <title>_\|Curriculum Vitae || <%= @name %>|/_</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+
+<!-- box div -->
+<div id="resume">
+
+<!-- Centers heading -->
+  <div align="center">
+
+    <br>
+
+    <h1><%= @name %></h1>
+    <a href="mailto:<%= @email%>?Subject=Hello%20from%20your%20website"><h3><%= @email%></h3></a> 
+    <h2>Cell: <%=@phone%></h2>
+    <br>
+  <!--end of centering-->  
+  </div>
+  <!-- second row -->
+  <div class="clear"></div>
+
+<!-- left cell -->
+  <div class="title">
+  <h2>About</h2>
+  </div>
+
+<!-- right cell -->
+  <div class="info">
+    <p>
+      <%= Faker::Lorem.paragraph%>
+    </p>
+  </div>
+
+  <!-- third row -->
+  <div class="clear"></div>
+<!-- left cell -->
+  <div class="title">
+  <h2>Education</h2>
+  </div>
+
+<!-- right cell -->
+  <div class="info">
+    <h3><%=Faker::Company.name %> <%=Faker::Company.suffix %></h3>
+    <p>
+      Bachelor of Science in <%= Faker::Hacker.ingverb %>  May 2008
+    </p>
+    <h3>Sample Coursework: </h3>
+    <ul>
+      <% 10.times do |x| %>
+        <li><%= Faker::Hacker.adjective %> <%= Faker::Hacker.noun %> <%= Faker::Hacker.ingverb %></li>
+      <% end %>
+      <!-- <li>
+      Sensation &amp; Perception, Experimental Analysis of Behavior, Engineering Psychology, Psychological Statistics, Cognitive Psychology, Research Methods, Differential Equations, Discrete Mathematics, Functional and Object-Oriented Programming, Physics, Aerospace Structures, Russian
+      </li> -->
+    </ul>
+  </div>
+
+
+<!-- third row -->
+  <div class="clear"></div>
+<!-- left cell -->
+  <div class="title">
+    <h2>Skills</h2>
+  </div>
+
+<!-- right cell -->
+  <div class="info">
+    <h3>
+    <%=Faker::Company.bs %>:
+    </h3>
+    <ul>
+      <% 5.times do |x| %>
+        <li><%= Faker::Hacker.adjective %> <%= Faker::Hacker.noun %> <%= Faker::Hacker.ingverb %></li>
+      <% end %>
+      <!-- <li>Controlled experiments</li>
+      <li>Wireframing</li>
+      <li>Heuristic Evaluation</li> 
+      <li>Personal/Mechanical Observation</li> 
+      <li>Content Analysis </li> -->
+    </ul>
+    <h3><%=Faker::Company.bs %>: </h3>
+    <ul>
+      <% 10.times do |x| %>
+        <li><%= Faker::Hacker.adjective %> <%= Faker::Hacker.noun %> <%= Faker::Hacker.ingverb %></li>
+      <% end %>
+      <!-- <li>HTML/CSS</li>
+      <li>Java</li>
+      <li>C++</li>
+      <li>PASCAL</li>
+      <li>Scheme</li>
+      <li>SuperCollider</li>
+      <li>TinTin+/Lua</li>
+      <li>UNIX/Mac/Windows</li>
+      <li>SPSS</li>
+      <li>MS-Office</li> -->
+    </ul>
+  </div>
+
+  <!-- fourth row -->
+  <div class="clear"></div>
+  <!-- left cell -->
+  <div class="title">
+    <h2><%=Faker::Company.catch_phrase %></h2>
+  </div>
+
+  <!-- right cell -->
+  <div class="info">
+    <h3><%=Faker::Name.title %></h3>
+      <ul><li><%=Faker::Lorem.sentence %> <%=Faker::Lorem.sentence %> <%=Faker::Lorem.sentence %></li></ul>
+    <h3><%=Faker::Name.title %></h3>
+    <ul>
+      <% 2.times do  %>
+        <li><%=Faker::Lorem.sentence %> <%=Faker::Lorem.sentence %> <%=Faker::Lorem.sentence %></li>
+      <% end %>
+      <!-- <li>Maintain and defend supply line from liquor room to bar.</li>
+      <li>Encourage patron participation[drinking/tipping] through the use of meta-rewards such as friendly smiles and variable drink quality.</li> -->
+    </ul>
+    
+  </div>
+
+  <!-- end right -->
+  <div class="clear"></div>
+  <br>
+
+  <div align="center">
+    <p>
+       <a href="http://<%= Faker::Internet.domain_name%>" target="_blank"> <%=@name%>'s Webpage</a> |
+       <a href="css/styles.css" target="_blank">SEE CSS CODE</a> 
+    </p>
+    <p>
+      <img src="img/extreme_face.gif">
+  </div>
+
+<!-- end box -->
+</div>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+%h1 Affiliated Hospitals
+
+= link_to "Create Hospital", new_hospital_path
+%ul
+  - @hospitals.each do |hospital|
+    %li
+      %strong
+        = link_to hospital.name, hospital_path(hospital)
+      | 
+      %strong
+        Max Capacity:
+      = hospital.capacity
+      |
+      = hospital.description
+      = link_to "Edit", edit_hospital_path(hospital)
+      |
+      = link_to "Delete", hospital_path(hospital), method: :delete
+%br
+= text_field_tag '', '', class: "patient_search"
+= link_to "Search Patients", 'javascript:void(0);', class: "search_patients btn btn-lg btn-primary"
+%ul.search_list
+= link_to "Back", root_path

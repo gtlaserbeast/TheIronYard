@@ -3,6 +3,7 @@
   %li{:class => "#{'active' if current_page?(courses_path)}"}=link_to "Courses", courses_path
   %li{:class => "#{'active' if current_page?(cohorts_path)}"}=link_to "Cohorts", cohorts_path
   %li{:class => "#{'active' if current_page?(new_enrollment_path)}"}=link_to "Enroll", new_enrollment_path
+  %li{:class => "#{'active' if current_page?(new_homework_path)}"}=link_to "Submite a Homework", new_homework_path
   - if current_user.try(:admin?)
     %li.dropdown
       %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
@@ -16,7 +17,7 @@
         %li
           = link_to "New Cohort", new_cohort_path
         %li
-          = link_to "Enroll", new_enrollment_path
+          = link_to "Enroll a User", new_enrollment_path
         %li
           = link_to "Create an Assignment", new_assignment_path
         / %li
