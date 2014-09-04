@@ -2,6 +2,7 @@ class AssignmentsController < ApplicationController
   before_action :find_assignment, only: [:show, :edit, :update, :destroy]
 
   def show
+    @homeworks = Homework.where(:assignment_id => @assignment.id).all
   end
 
   def index

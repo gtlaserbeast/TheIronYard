@@ -11,7 +11,7 @@ RSpec.describe Enrollment, :type => :model do
     end
     it 'should validate uniqueness of :user_id' do
       enrollment = Enrollment.new
-      enrollment.should validate_uniqueness_of(:user_id).scoped_to(:cohort_id).with_message('already exists')
+      enrollment.should validate_uniqueness_of(:user_id).scoped_to(:cohort_id)
     end
   end
 end

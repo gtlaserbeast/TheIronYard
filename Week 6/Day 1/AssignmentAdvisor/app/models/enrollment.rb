@@ -5,6 +5,6 @@ class Enrollment < ActiveRecord::Base
   has_one :course, through: :cohort
   validates :user_id, presence: true
   validates :cohort_id, presence: true
-  validates_uniqueness_of :user, scope: [:user_id, :cohort_id]
+  validates :user_id, uniqueness: {scope: [:user_id, :cohort_id] }
   accepts_nested_attributes_for :cohort, :user, :location, :course
 end

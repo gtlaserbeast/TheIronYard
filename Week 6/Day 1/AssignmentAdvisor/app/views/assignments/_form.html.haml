@@ -1,24 +1,25 @@
-= form_for @assignment do |f|
-  - if  f.object.errors.messages.length > 0
-    / Renders errors to user
-    - f.object.errors.messages.inspect
-    %br/
-    - f.object.errors.messages.each do |key, value|
-      - value.each do |message|
-        = key.capitalize
-        = message
-        %br/
+.form-group
+  = form_for @assignment do |f|
+    - if  f.object.errors.messages.length > 0
+      / Renders errors to user
+      - f.object.errors.messages.inspect
       %br/
-  = f.label :cohort_id
-  = f.select :cohort_id, Cohort.all.collect {|u| ["#{u.course.title}, #{u.location.name}, #{u.start_date}", u.id]}
-  %br
-  = f.label :due_date
-  = f.date_field :due_date
-  %br
-  = f.label :name
-  = f.text_field :name
-  %br
-  = f.label :description
-  = f.text_area :description
-  %br
-  = f.submit
+      - f.object.errors.messages.each do |key, value|
+        - value.each do |message|
+          = key.capitalize
+          = message
+          %br/
+        %br/
+    = f.label :cohort_id, class: 'control-label'
+    = f.select :cohort_id, Cohort.all.collect {|u| ["#{u.course.title}, #{u.location.name}, #{u.start_date}", u.id]}, class: 'form-control'
+    %br
+    = f.label :due_date, class: 'control-label'
+    = f.date_field :due_date, class: 'form-control'
+    %br
+    = f.label :name, class: 'control-label'
+    = f.text_field :name, class: 'form-control'
+    %br
+    = f.label :description, class: 'control-label'
+    = f.text_area :description, class: 'form-control'
+    %br
+    = f.submit

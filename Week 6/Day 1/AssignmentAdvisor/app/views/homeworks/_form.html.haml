@@ -1,25 +1,31 @@
-= form_for @homework do |f|
-  - if  f.object.errors.messages.length > 0
-    / Renders errors to user
-    - f.object.errors.messages.inspect
-    %br/
-    - f.object.errors.messages.each do |key, value|
-      - value.each do |message|
-        = key.capitalize
-        = message
-        %br/
+.form-group
+  = nested_form_for @homework do |f|
+    - if  f.object.errors.messages.length > 0
+      / Renders errors to user
+      - f.object.errors.messages.inspect
       %br/
-  = f.hidden_field :user_id, :value => current_user.id 
-  = f.label :assignment_id
-  = f.select :assignment_id, Assignment.all.collect {|u| ["#{u.cohort.course.title}, #{u.name}, #{u.description}", u.id]}
-  %br
-  = f.label :title
-  = f.text_field :title
-  %br
-  = f.label :notes
-  = f.text_field :notes
-  %br
-  = f.label :links
-  = f.text_area :links
-  %br
-  = f.submit
+      - f.object.errors.messages.each do |key, value|
+        - value.each do |message|
+          = key.capitalize
+          = message
+          %br/
+        %br/
+    = f.hidden_field :user_id, :value => current_user.id 
+    = f.label :assignment_id, class: 'control-label'
+    = f.select :assignment_id, Assignment.all.collect {|u| ["#{u.cohort.course.title}, #{u.name}, #{u.description}", u.id]}
+    %br
+    = f.label :title, class: 'control-label'
+    = f.text_field :title
+    %br
+    = f.label :notes, class: 'control-label'
+    = f.text_field :notes
+    %br
+    %p= f.link_to_add "Add a link", :links
+    = f.fields_for :links do |link|
+      = link.label :path, "URL/SSH", class: "control-label"
+      = link.text_field :path, class: "form-control"
+      = link.link_to_remove "Remove this link"
+    / = f.label :links, class: 'control-label'
+    / = f.text_area :links
+    %br
+    = f.submit

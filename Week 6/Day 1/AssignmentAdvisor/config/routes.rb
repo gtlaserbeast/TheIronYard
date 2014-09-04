@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'links/new'
+
+  get 'links/create'
+
+  get 'links/edit'
+
+  get 'links/update'
+
+  get 'links/index'
+
+  get 'links/show'
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :locations
   resources :courses

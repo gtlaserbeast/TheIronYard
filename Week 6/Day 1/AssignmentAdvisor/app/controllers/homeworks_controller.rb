@@ -1,4 +1,5 @@
 class HomeworksController < ApplicationController
+  # before_action :find_assignment, except: :new
   before_action :find_homework, only: [:show, :edit, :update, :destroy]
   def index
     @homeworks = Homework.all
@@ -36,9 +37,12 @@ class HomeworksController < ApplicationController
   end
 private
   def homework_params
-    params.require(:homework).permit(:assignment_id, :user_id, :title, :notes, :links)
+    params.require(:homework).permit(:assignment_id, :user_id, :title, :notes, links_attributes: [:id, :path, :homework_id, :_destroy])
   end
   def find_homework
     @homework = Homework.find params[:id]
+  end
+  def find_assignment
+    @assignment = Assignment.find params[:assignment_id]
   end
 end

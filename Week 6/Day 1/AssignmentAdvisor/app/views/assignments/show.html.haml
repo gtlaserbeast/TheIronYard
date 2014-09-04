@@ -1,0 +1,16 @@
+%div.row
+  %div.col-md-6
+    %div
+      %h3 
+        = "#{@assignment.name} Assignment"
+        - if current_user.admin?
+          = link_to "Edit", edit_assignment_path(@assignment)
+      .well
+        = @assignment.description
+    %div
+      = link_to "Submit", new_homework_path
+    %div
+      %h3 Homework Submissions
+      .list-group
+        - @homeworks.each do |homework|
+          %a.list-group-item{:href => "#{homework_path(homework)}"}= homework.user.email

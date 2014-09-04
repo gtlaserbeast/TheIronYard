@@ -16,7 +16,7 @@
   %ul
     - @cohort.assignments.each do |f|
       %li
-        = f.name
+        = link_to "#{f.name}", assignment_path(f)
         %strong
           | due: 
         = f.due_date
