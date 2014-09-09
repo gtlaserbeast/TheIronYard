@@ -1,8 +1,10 @@
 %h1 Affiliated Hospitals
 
 = link_to "Create Hospital", new_hospital_path
+- markers = ''
 %ul
   - @hospitals.each do |hospital|
+    - markers = "#{hospital.latitude}%2C#{hospital.longitude}&"
     %li
       %strong
         = link_to hospital.name, hospital_path(hospital)
@@ -12,9 +14,14 @@
       = hospital.capacity
       |
       = hospital.description
+      |
+      = hospital.address
       = link_to "Edit", edit_hospital_path(hospital)
       |
       = link_to "Delete", hospital_path(hospital), method: :delete
+      = image_tag "http://maps.google.com/maps/api/staticmap?size=1000x1000&sensor=false&markers=#{markers}"
+      / - markers << "#{hospital.latitude}%2C#{hospital.longitude}&"
+%br
 %br
 = text_field_tag '', '', class: "patient_search"
 = link_to "Search Patients", 'javascript:void(0);', class: "search_patients btn btn-lg btn-primary"
