@@ -1,24 +1,33 @@
 Rails.application.routes.draw do
 
-  get 'links/new'
+  # get 'poops/color:string'
 
-  get 'links/create'
+  # get 'poops/size:integere'
 
-  get 'links/edit'
+  # get 'links/new'
 
-  get 'links/update'
+  # get 'links/create'
 
-  get 'links/index'
+  # get 'links/edit'
 
-  get 'links/show'
+  # get 'links/update'
+
+  # get 'links/index'
+
+  # get 'links/show'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
-  resources :locations
   resources :courses
-  resources :cohorts
-  resources :enrollments
-  resources :assignments
-  resources :homeworks
+  resources :locations do
+    resources :cohorts do
+      resources :enrollments
+      resources :assignments do
+        resources :homeworks do
+          resources :links
+        end
+      end    
+    end
+  end
   resources :comments
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
