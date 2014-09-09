@@ -18,15 +18,14 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :courses
-  resources :locations do
-    resources :cohorts do
-      resources :enrollments
-      resources :assignments do
-        resources :homeworks do
-          resources :links
-        end
-      end    
-    end
+  resources :locations
+  resources :cohorts do
+    resources :enrollments
+    resources :assignments do
+      resources :homeworks do
+        resources :links
+      end
+    end    
   end
   resources :comments
   # The priority is based upon order of creation: first created -> highest priority.

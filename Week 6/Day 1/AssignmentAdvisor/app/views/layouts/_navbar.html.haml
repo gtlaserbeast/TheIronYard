@@ -1,7 +1,7 @@
 %ul.nav.navbar-nav
   %li{:class => "#{'active' if current_page?(locations_path)}"}=link_to "Locations", locations_path
   %li{:class => "#{'active' if current_page?(courses_path)}"}=link_to "Courses", courses_path
-  /%li{:class => "#{'active' if current_page?(location_cohorts_path)}"}=link_to "Cohorts", location_cohorts_path
+  %li{:class => "#{'active' if current_page?(cohorts_path)}"}=link_to "Cohorts", cohorts_path
   /%li{:class => "#{'active' if current_page?(new_location_enrollment_path)}"}=link_to "Enroll", new_enrollment_path
   /%li{:class => "#{'active' if current_page?(new_location_enrollment_homework_path)}"}=link_to "Submit a Homework", new_homework_path
   - if current_user.try(:admin?)
