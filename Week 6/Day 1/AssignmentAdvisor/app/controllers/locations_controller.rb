@@ -25,7 +25,7 @@ class LocationsController < ApplicationController
 
   def update
     @location.update_attributes location_params
-    redirect_to location_path(@location)
+    redirect_to locations_path
   end
 
   def destroy
