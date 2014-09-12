@@ -1,20 +1,21 @@
 class HomeworksController < ApplicationController
   # before_action :find_assignment, except: :new
   before_action :find_homework, only: [:show, :edit, :update, :destroy]
+  before_action :find_assignment
   def index
     @homeworks = Homework.all
   end
 
   def new
-    @cohorts = Cohort.all
-    @users = User.all
+    @cohort = @assignment.cohort
     @homework = Homework.new
   end
 
   def create
+    @cohort = @assignment.cohort
     @homework = Homework.create homework_params
     if @homework.save == true
-      redirect_to new_homework_path
+      redirect_to cohort_assignment_path(@cohort, @assignment)
     else
       render :new
     end

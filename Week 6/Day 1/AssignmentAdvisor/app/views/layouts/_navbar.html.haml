@@ -2,8 +2,8 @@
   %li{:class => "#{'active' if current_page?(locations_path)}"}=link_to "Locations", locations_path
   %li{:class => "#{'active' if current_page?(courses_path)}"}=link_to "Courses", courses_path
   %li{:class => "#{'active' if current_page?(cohorts_path)}"}=link_to "Cohorts", cohorts_path
-  /%li{:class => "#{'active' if current_page?(new_location_enrollment_path)}"}=link_to "Enroll", new_enrollment_path
-  /%li{:class => "#{'active' if current_page?(new_location_enrollment_homework_path)}"}=link_to "Submit a Homework", new_homework_path
+  /%li{:class => "#{'active' if current_page?(new_cohort_enrollment_path)}"}=link_to "Enroll", new_cohort_enrollment_path
+  /%li{:class => "#{'active' if current_page?(new_cohort_enrollment_homework_path)}"}=link_to "Submit a Homework", new_cohort_enrollment_homework_path
   - if current_user.try(:admin?)
     %li.dropdown
       %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
@@ -15,7 +15,7 @@
         %li
           = link_to "New Course", new_course_path
         %li
-          /= link_to "New Cohort", new_cohort_path
+          =link_to "New Cohort", new_cohort_path
         %li
           /= link_to "Enroll a User", new_enrollment_path
         %li

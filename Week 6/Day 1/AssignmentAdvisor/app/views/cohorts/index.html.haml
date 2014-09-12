@@ -1,15 +1,20 @@
-- @cohorts.each do |cohort|
-  .col-md-12
-    - if current_user.try(:admin?)
-      = link_to "Edit", edit_cohort_path(cohort), :class=> "btn btn-info btn-xs"
-      = link_to "Delete", cohort_path(cohort), method: :delete, :class=>"btn btn-danger btn-xs"
-    %strong
-      = link_to cohort.course.title, cohort_path(cohort)
-    %em
-      = cohort.course.description
-      = cohort.start_date
-    = link_to cohort.location.name, location_path(cohort.location)
-.col-md-12
-  - if current_user.try(:admin?)
-    = link_to "New Cohort", new_cohort_path, :class=>"btn btn-default btn-xs"
-  = link_to "Back", root_path, :class=>"btn btn-default btn-xs"
+.container
+  .row
+    - @cohorts.each do |cohort|
+      .col-md-12
+        - if current_user.try(:admin?)
+          = link_to "Edit", edit_cohort_path(cohort), :class=> "btn btn-info btn-xs"
+          = link_to "Delete", cohort_path(cohort), method: :delete, :class=>"btn btn-danger btn-xs"
+        %strong
+          = link_to cohort.course.title, cohort_path(cohort)
+        %em
+          = cohort.course.description
+          = cohort.start_date
+        = link_to cohort.location.name, location_path(cohort.location)
+      .col-md-6.col-xs-6.cohorts_index_pane
+.container
+  .row
+    .col-md-12.col-xs-12
+      - if current_user.try(:admin?)
+        = link_to "New Cohort", new_cohort_path, :class=>"btn btn-default btn-xs"
+      = link_to "Back", root_path, :class=>"btn btn-default btn-xs"

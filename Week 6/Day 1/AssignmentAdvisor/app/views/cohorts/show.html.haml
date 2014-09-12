@@ -1,34 +1,37 @@
-.col-md-12
-  %strong
-    = @cohort.course.title
-  @
-  %em
-    = @cohort.location.name
-  on:
-  = @cohort.start_date
-  %br
-  - if current_user.try(:admin?)
-    = link_to "New Assignment", new_assignment_path, :class=>"btn btn-default btn-xs"
-.col-md-12
-  %strong
-    Assignments:
-  %br
-  %ul
-    - @cohort.assignments.each do |f|
-      %li
-        = link_to "#{f.name}", assignment_path(f)
-        %strong
-          | due: 
-        = f.due_date
-        %strong
-          | description: 
-        = f.description
-.col-md-12
-  %strong
-    Students:
-  %br
-  - @cohort.enrollments.each do |f|
-    -if f.user.email
-      .col-md-12
-        = mail_to "#{f.user.email}", f.user.name
-    %br
+.container
+  .row
+    .col-md-6
+      %strong
+        = @cohort.course.title
+      @
+      %em
+        = @cohort.location.name
+      on:
+      = @cohort.start_date
+  .row
+    .col-md-6
+      %strong
+        Assignments:
+      %ul
+        - @cohort.assignments.each do |f|
+          %li
+            = link_to "#{f.name}", cohort_assignment_path(@cohort, f)
+            %strong
+              | due: 
+            = f.due_date
+            %strong
+              | description: 
+            = f.description
+      %br
+      - if current_user.try(:admin?)
+        = link_to "New Assignment", new_cohort_assignment_path(@cohort), :class=>"btn btn-default btn-xs"
+  .row  
+    .col-md-6
+      %strong
+        Students:
+      %br
+      - @cohort.enrollments.each do |f|
+        -if f.user.email
+          .col-md-12
+            = mail_to "#{f.user.email}", f.user.name
+        %br

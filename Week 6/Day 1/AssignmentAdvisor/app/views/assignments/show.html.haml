@@ -1,16 +1,19 @@
-%div.row
-  %div.col-md-6
-    %div
+.container
+  .div.row
+    .col-md-6
       %h3 
-        = "#{@assignment.name} Assignment"
+        = @assignment.name
         - if current_user.admin?
-          = link_to "Edit", edit_assignment_path(@assignment)
-      .well
+          = link_to "Edit", edit_cohort_assignment_path(@assignment.cohort_id, @assignment)
+      .well.well-sm
         = @assignment.description
-    %div
-      = link_to "Submit", new_homework_path
-    %div
-      %h3 Homework Submissions
-      .list-group
-        - @homeworks.each do |homework|
-          %a.list-group-item{:href => "#{homework_path(homework)}"}= homework.user.email
+      = link_to "Submit a Homework for this Assignment", new_cohort_assignment_homework_path(@assignment.cohort_id, @assignment), :class=>"btn btn-default btn-xs"
+      %br
+      %br
+      .well.well-sm
+        %h3 Homework Submissions
+        .list-group
+          - @homeworks.each do |homework|
+            %a.list-group-item{:href => "#{cohort_assignment_homework_path(@assignment.cohort_id, @assignment, homework)}"}= " (#{homework.title})by: #{homework.user.name}"
+            -if current_user == homework.user
+              = link_to "Edit Your Submission", edit_cohort_assignment_homework_path(@assignment.cohort_id, @assignment, homework)

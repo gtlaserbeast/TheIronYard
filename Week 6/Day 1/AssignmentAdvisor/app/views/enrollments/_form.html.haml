@@ -1,21 +1,25 @@
-= form_for @enrollment do |f|
-  - if  f.object.errors.messages.length > 0
-    / Renders errors to user
-    - f.object.errors.messages.inspect
-    %br/
-    - f.object.errors.messages.each do |key, value|
-      - value.each do |message|
-        = key.capitalize
-        = message
-        %br/
-      %br/
-  = f.label :cohort_id
-  =f.select :cohort_id, Cohort.all.collect {|u| ["#{u.course.title}, #{u.location.name}, #{u.start_date}", u.id]}
-  %br
-  = f.hidden_field :user_id, :value => current_user.id 
-  - if current_user.try(:admin?)
-    = f.label :user_id
-    = f.collection_select :user_id, User.all.each,:id,:name, include_blank: true
-    %br
+.container
+  .row
+    .col-md-6.col-xs-6
+      .form-group
+        = form_for @enrollment do |f|
+          - if  f.object.errors.messages.length > 0
+            / Renders errors to user
+            - f.object.errors.messages.inspect
+            %br/
+            - f.object.errors.messages.each do |key, value|
+              - value.each do |message|
+                = key.capitalize
+                = message
+                %br/
+              %br/
+          = f.label :cohort_id, class: 'control-label'
+          =f.select :cohort_id, Cohort.all.collect {|u| ["#{u.course.title}, #{u.location.name}, #{u.start_date}", u.id]}, class: 'form-control'
+          %br
+          = f.hidden_field :user_id, :value => current_user.id 
+          - if current_user.try(:admin?)
+            = f.label :user_id, class: 'control-label'
+            = f.collection_select :user_id, User.all.each,:id,:name, include_blank: true, class: 'form-control'
+            %br
 
-  = f.submit
+          = f.submit

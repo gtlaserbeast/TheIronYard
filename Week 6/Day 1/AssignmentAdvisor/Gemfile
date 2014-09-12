@@ -14,7 +14,7 @@ gem 'quiet_assets', group: :development
 gem 'haml-rails'
 gem 'devise'
 gem 'nested_form'
-gem "url_validator", "~> 0.0.3"
+
 gem "geocoder"
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
