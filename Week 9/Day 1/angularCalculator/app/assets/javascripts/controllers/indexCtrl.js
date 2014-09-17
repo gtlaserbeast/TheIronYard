@@ -1,4 +1,4 @@
-function IndexCtrl($scope) {
+var IndexCtrl =function($scope) {
   $scope.output = "0";
   $scope.newNumber = true;
   $scope.pendingOperation = null;
