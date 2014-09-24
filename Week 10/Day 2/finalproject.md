@@ -1,7 +1,8 @@
 #Little old LandLady app
+## LOL APP
 ![LandLady](http://fellowshipofminds.files.wordpress.com/2010/12/old-woman.jpg =200x)
 ###Concept
-	Application intended to assist property owners in the management of their rental units. 	Features designed to facilitate communcation/payment via web/text. Consolidation of repetitive tasks i.e. lease agreement/repair requests 
+	Application intended to assist property owners in the management of their rental units. Features designed to facilitate communcation/payment via web/text. Consolidation of repetitive tasks i.e. lease agreement/repair requests 
 ##Rentals
 1. geolocation map
     	**2hrs**
@@ -40,7 +41,8 @@
 ###Tables/Schema
 **4hrs**
 
-[Devise GitHub](https://github.com/plataformatec/devise)
+[Devise GitHub](https://github.com/plataformatec/devise) - Admin attr rather than table
+
 
 1. owner 
 	- name
