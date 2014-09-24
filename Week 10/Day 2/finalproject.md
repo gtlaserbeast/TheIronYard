@@ -5,13 +5,13 @@
 	Application intended to assist property owners in the management of their rental units. Features designed to facilitate communcation/payment via web/text. Consolidation of repetitive tasks i.e. lease agreement/repair requests 
 ##Rentals
 1. geolocation map
-**2hrs**
+**3hrs**
 2. upforrent/rented
 **4hrs**
 3. repairs needed
 **4hrs**
 4. repairs completed
-**2hrs**
+**3hrs**
 5. preferred repairmen *stretch-goal*    	
 6. current_occupants
 **2hr**
@@ -73,6 +73,6 @@
 	- texting the landlord for emergency requests
 	- comments on work orders to keep track of progress
 
-#**43ish total hours**
+#**45 x 2(newbie coefficient)= 90ish total hours**
 #I would love some suggestions for nifty names
 	
