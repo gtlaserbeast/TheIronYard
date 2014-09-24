@@ -5,24 +5,24 @@
 	Application intended to assist property owners in the management of their rental units. Features designed to facilitate communcation/payment via web/text. Consolidation of repetitive tasks i.e. lease agreement/repair requests 
 ##Rentals
 1. geolocation map
-    	**2hrs**
+**2hrs**
 2. upforrent/rented
-**    	3hrs**
+**4hrs**
 3. repairs needed
-    	**4hrs**
+**4hrs**
 4. repairs completed
-      	**2hrs**
+**2hrs**
 5. preferred repairmen *stretch-goal*    	
 6. current_occupants
-		**1hr**
+**2hr**
 7. paid/late/pending
-		**4hrs**
+**4hrs**
 8. urgent texting - twillio *stretch-goal* [twilio blog](https://www.twilio.com/blog/2014/02/twilio-on-rails-integrating-twilio-with-your-rails-4-app.html "a guide for twilio and rails 4")
-		**3hrs?**
+**3hrs?**
 9. stripe for payment *stretch-goal* [Stripe Github](https://github.com/stripe/stripe-ruby)
-		**3hrs?**
+**3hrs?**
 10. workflow for pay, repairs, vacancy AJAX
-		**8hrs**
+**8hrs**
 	1. pay
 		pending, paid_on_time, late, paid-late
 	2. repairs
@@ -32,9 +32,9 @@
 
 ##Renters
 1. submit work requests
-	**4hrs**
+**4hrs**
 2. contact landlord
-	**3hrs**
+**3hrs**
 3. online pay *stretch-goal* [Stripe Github](https://github.com/stripe/stripe-ruby)
 4. urgent text messaging *stretch-goal* [twilio blog](https://www.twilio.com/blog/2014/02/twilio-on-rails-integrating-twilio-with-your-rails-4-app.html "a guide for twilio and rails 4")
 
@@ -73,6 +73,6 @@
 	- texting the landlord for emergency requests
 	- comments on work orders to keep track of progress
 
-
+#**43ish total hours**
 #I would love some suggestions for nifty names
 	
