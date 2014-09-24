@@ -40,6 +40,8 @@
 ###Tables/Schema
 **4hrs**
 
+[Devise GitHub](https://github.com/plataformatec/devise)
+
 1. owner 
 	- name
 	- email
