@@ -1,5 +1,7 @@
 #Little old LandLady app
 ![LandLady](http://fellowshipofminds.files.wordpress.com/2010/12/old-woman.jpg =200x)
+###Concept
+	Application intended to assist property owners in the management of their rental units. 	Features designed to facilitate communcation/payment via web/text. Consolidation of repetitive tasks i.e. lease agreement/repair requests 
 ##Rentals
 1. geolocation map
     	**2hrs**
@@ -66,5 +68,7 @@
 6. correspondance of some sort
 	- texting the landlord for emergency requests
 	- comments on work orders to keep track of progress
-	
+
+
+#I would love some suggestions for nifty names
 	
