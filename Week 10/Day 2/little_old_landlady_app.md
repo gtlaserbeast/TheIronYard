@@ -54,7 +54,7 @@
   	- name
   	- email
   	- phone
-  -workphone/workaddress *not required but on form
+  	- workphone/workaddress *not required but on form
 4. repair belongs_to rental
 	- category (plumbing/carpentry/yard)
 	- description
