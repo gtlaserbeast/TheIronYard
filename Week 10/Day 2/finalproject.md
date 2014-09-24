@@ -1,5 +1,5 @@
 #Little old LandLady app
-## LOL APP
+## LOL APP / Rental Rodeo
 ![LandLady](http://fellowshipofminds.files.wordpress.com/2010/12/old-woman.jpg =200x)
 ###Concept
 	Application intended to assist property owners in the management of their rental units. Features designed to facilitate communcation/payment via web/text. Consolidation of repetitive tasks i.e. lease agreement/repair requests 
