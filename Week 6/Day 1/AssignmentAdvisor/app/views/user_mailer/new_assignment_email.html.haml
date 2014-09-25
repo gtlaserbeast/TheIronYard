@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      #{@cohort.course.title} @ #{@cohort.location.name} has a new assignment!
+    %p
+      #{@user.name}, because you have enrolled in #{@cohort.course.title}, you have homework to do!
+      %br/
+    %p Have a great day!

@@ -1,0 +1,38 @@
+.container
+  .row
+    .col-md-6.col-xs-6
+      .form-group
+        = nested_form_for [@cohort, @assignment, @homework] do |f|
+          - if  f.object.errors.messages.length > 0
+            / Renders errors to user
+            - f.object.errors.messages.inspect
+            %br/
+            - f.object.errors.messages.each do |key, value|
+              - value.each do |message|
+                = key.capitalize
+                = message
+                %br/
+              %br/
+          -if :assignment_id == nil
+            = f.label :assignment_id, class: 'control-label'
+            = f.select :assignment_id, Assignment.all.collect {|u| ["#{u.course.title}, #{u.location.name}, #{u.start_date}", u.id]}, class: 'form-control'
+            %br
+          - else
+            = f.hidden_field :assignment_id, :value => @assignment.id
+          = f.hidden_field :user_id, :value => current_user.id 
+          %br
+          = f.label :title, class: 'control-label'
+          = f.text_field :title
+          %br
+          = f.label :notes, class: 'control-label'
+          = f.text_field :notes
+          %br
+          = f.link_to_add "Add a link", :links
+          = f.fields_for :links do |link|
+            = link.label :path, "URL/SSH", class: "control-label"
+            = link.text_field :path, class: "form-control"
+            = link.link_to_remove "Remove this link"
+          / = f.label :links, class: 'control-label'
+          / = f.text_area :links
+          %br
+          = f.submit

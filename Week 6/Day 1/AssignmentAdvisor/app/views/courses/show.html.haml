@@ -1,0 +1,19 @@
+.col-md-12
+  %strong
+    =@course.title
+  |
+  =@course.description
+.col-md-12
+  %em
+    Locations Teaching This Course: 
+  %br
+  - @course.cohorts.each do |cohort|
+    - if current_user.try(:admin?)
+      = link_to "Edit", edit_cohort_path(cohort), :class=> "btn btn-info btn-xs"
+      = link_to "Delete", cohort_path(cohort), method: :delete, :class=>"btn btn-danger btn-xs"
+    %strong
+      = link_to cohort.location.name, cohort_path(cohort)
+    %em
+      = cohort.location.address
+      = cohort.start_date
+    %br

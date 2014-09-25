@@ -1,0 +1,77 @@
+%h1
+  =@hospital.name
+  Hospital
+%br
+=@hospital.address
+= text_field_tag '', '', class: "hospital_patient_search"
+= link_to "Search Patients", 'javascript:void(0);', class: "search_hospital_patients btn btn-lg btn-primary"
+%ul.search_list
+%table
+  %tr
+    %th Name
+    %th Gender
+    %th DoB Y/M/D
+    %th Status
+    %th Change Status
+    %th Tasks
+
+  - @hospital.patients.each do |patient|
+    %tr
+      %td= link_to patient.name, hospital_patient_path(patient.hospital_id, patient)
+      %td= patient.gender
+      %td= patient.birth
+      %td= patient.workflow_state
+      %td.workflow_state
+        -case patient.workflow_state
+        -when "waiting"
+          = link_to "See_Doctor!", see_doctor_hospital_patient_path(patient.hospital_id, patient), method: :put
+          = link_to "To X-ray!", to_xray_hospital_patient_path(patient.hospital_id, patient), method: :put
+          = link_to "To Surgery!", to_surgery_hospital_patient_path(patient.hospital_id, patient), method: :put
+          = link_to "Check Out!", leave_hospital_patient_path(patient.hospital_id, patient), method: :put
+        -when "with_doctor"
+          = link_to "To Waiting!", to_waiting_hospital_patient_path(patient.hospital_id, patient), method: :put
+          = link_to "To X-ray!", to_xray_hospital_patient_path(patient.hospital_id, patient), method: :put
+          = link_to "To Surgery!", to_surgery_hospital_patient_path(patient.hospital_id, patient), method: :put
+          = link_to "To Billing!", to_billing_hospital_patient_path(patient.hospital_id, patient), method: :put
+          / = link_to "to_billing", transition_patient_path(@patient, event: :to_billing)
+        -when "in_xray"
+          = link_to "See Doctor!", see_doctor_hospital_patient_path(patient.hospital_id, patient), method: :put
+          = link_to "To Waiting!", to_waiting_hospital_patient_path(patient.hospital_id, patient), method: :put
+          = link_to "To Surgery!", to_surgery_hospital_patient_path(patient.hospital_id, patient), method: :put
+          = link_to "To Billing!", to_billing_hospital_patient_path(patient.hospital_id, patient), method: :put
+        -when "in_surgery"
+          = link_to "See Doctor!", see_doctor_hospital_patient_path(patient.hospital_id, patient), method: :put
+          = link_to "To Waiting!", to_waiting_hospital_patient_path(patient.hospital_id, patient), method: :put
+          = link_to "To X-ray!", to_xray_hospital_patient_path(patient.hospital_id, patient), method: :put
+          = link_to "To Billing!", to_billing_hospital_patient_path(patient.hospital_id, patient), method: :put
+        -when "paying"
+          = link_to "Check Out!", leave_hospital_patient_path(patient.hospital_id, patient), method: :put
+        -when "leaving"
+      %td= link_to 'Edit', edit_hospital_patient_path(patient.hospital_id, patient)
+      %td= link_to 'Destroy', hospital_patient_path(patient.hospital_id, patient), :method => :delete, :data => { :confirm => 'Are you sure?' }
+%br
+Doctors
+%br
+%ul
+  - @hospital.doctors.each do |doctor|
+    - if doctor.name
+      %li
+        = doctor.name
+        |
+        = doctor.speciality
+        = link_to "[Delete]", delete_doctor_hospital_path(@hospital, doctor_id: doctor.id), method: :delete
+
+= form_for @doctor, url: create_doctor_hospital_path(@hospital) do |f|
+  = f.label :name
+  %br
+  = f.text_field :name
+  %br
+  = f.label :speciality
+  %br
+  = f.text_field :speciality
+  %br
+  = f.submit
+
+= link_to 'New Patient', new_hospital_patient_path(@hospital)
+%br
+= link_to 'Back to all Hospitals', hospitals_path

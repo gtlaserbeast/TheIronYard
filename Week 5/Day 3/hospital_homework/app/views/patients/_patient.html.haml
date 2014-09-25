@@ -1,0 +1,5 @@
+%li
+  = patient.name
+  |
+  = patient.birth
+  = link_to 'Click here', hospital_patient_path(patient.hospital_id, patient)

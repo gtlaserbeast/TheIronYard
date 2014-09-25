@@ -1,0 +1,56 @@
+%h3
+  =@hospital.name
+  Hospital 
+  %br
+  Patient:
+  =@patient.name
+  %br
+Gender:
+=@patient.gender
+%br
+Date of Birth:
+=@patient.birth
+%br
+%ul
+  %li= @patient.diagnosis
+Status:
+=@patient.workflow_state
+%br
+%td= link_to 'Edit', edit_hospital_patient_path(@patient.hospital_id, @patient)
+|
+%td= link_to 'Destroy', hospital_patient_path(@patient.hospital_id, @patient), :method => :delete, :data => { :confirm => 'Are you sure?' }
+%table
+  %tr
+    %th Medication
+    %th Prescribed Usage
+  - @patient.medications.each do |medication|
+    %tr
+      %td= link_to medication.name, hospital_patient_medication_path(@hospital, @patient, medication)
+      %td= medication.description
+      %td= link_to 'Edit', edit_hospital_patient_medication_path(@hospital, @patient, medication)
+      %td= link_to 'Destroy', hospital_patient_medication_path(@hospital, @patient, medication), :method => :delete, :data => { :confirm => 'Are you sure?' }
+%hr
+%br
+%ul
+  - @patient.doctors.each do |doctor|
+    - if doctor.name
+      %li
+        = doctor.name
+        |
+        = doctor.speciality
+        = link_to "[Delete]", delete_doctor_hospital_patient_path(@hospital, @patient, doctor_id: doctor.id), method: :delete
+
+= form_for @doctor, url: create_doctor_hospital_patient_path(@hospital, @patient) do |f|
+  = f.label :name
+  %br
+  = f.text_field :name
+  %br
+  = f.label :speciality
+  %br
+  = f.text_field :speciality
+  %br
+  = f.submit
+
+= link_to 'Prescribe Medication!', new_hospital_patient_medication_path(@hospital, @patient)
+%br
+= link_to "Back to #{@hospital.name}! ", hospital_path(@hospital)

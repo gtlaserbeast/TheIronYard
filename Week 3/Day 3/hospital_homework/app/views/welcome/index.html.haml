@@ -1,0 +1,69 @@
+/ %h1 St. Mary's Hospital
+/ %br/
+/ = link_to "Add a Patient", new_patient_path
+/ %ul
+/   - @patients.each do |patient|
+/     %li
+/       = link_to patient.name, patient_path(patient)
+/       \:
+/       \#{patient.gender} :
+/       \#{patient.birth} :
+/       \#{patient.diagnosis} :
+/       \#{link_to "Edit", edit_patient_path(patient.id)} :
+/       \#{link_to "Delete", patient_path(patient), method: :delete}
+
+%h1 St. Mary's Hospital
+
+%table
+  %tr
+    %th Name
+    %th Gender
+    %th DoB Y/M/D
+    %th Workflow State
+    %th
+    %th
+    %th
+    %th Change State
+
+  - @patients.each do |patient|
+    %tr
+      %td= patient.name
+      %td= patient.gender
+      %td= patient.birth
+      %td= patient.workflow_state
+      %td= link_to 'Show', patient
+      %td= link_to 'Edit', edit_patient_path(patient)
+      %td
+        = link_to 'Destroy', patient, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td.workflow_state
+        -case patient.workflow_state
+        -when "waiting"
+          = link_to "see_doctor!", see_doctor_patient_path(patient), method: :put
+          = link_to "to_xray!", to_xray_patient_path(patient), method: :put
+          = link_to "to_surgery!", to_surgery_patient_path(patient), method: :put
+          = link_to "check_out!", leave_patient_path(patient), method: :put
+        -when "with_doctor"
+          = link_to "to_waiting!", to_waiting_patient_path(patient), method: :put
+          = link_to "to_xray!", to_xray_patient_path(patient), method: :put
+          = link_to "to_surgery!", to_surgery_patient_path(patient), method: :put
+          = link_to "to_billing!", to_billing_patient_path(patient), method: :put
+<<<<<<< HEAD
+          / = link_to "to_billing", transition_patient_path(@patient, event: :to_billing)
+=======
+>>>>>>> e504574063bc8cc2cafecde85eb0a7fb40888492
+        -when "in_xray"
+          = link_to "see_doctor!", see_doctor_patient_path(patient), method: :put
+          = link_to "to_waiting!", to_waiting_patient_path(patient), method: :put
+          = link_to "to_surgery!", to_surgery_patient_path(patient), method: :put
+          = link_to "to_billing!", to_billing_patient_path(patient), method: :put
+        -when "in_surgery"
+          = link_to "see_doctor!", see_doctor_patient_path(patient), method: :put
+          = link_to "to_waiting!", to_waiting_patient_path(patient), method: :put
+          = link_to "to_xray!", to_xray_patient_path(patient), method: :put
+          = link_to "to_billing!", to_billing_patient_path(patient), method: :put
+        -when "paying"
+          = link_to "check_out!", leave_patient_path(patient), method: :put
+        -when "leaving"
+%br
+
+= link_to 'New Patient', new_patient_path

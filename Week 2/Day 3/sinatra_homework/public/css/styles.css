@@ -1,0 +1,101 @@
+/* Styles for links */
+
+#resume a:link
+{
+  color: #600;
+  text-decoration: none;
+}
+
+#resume a:visited
+{
+  color: #600;
+  text-decoration: none;
+}
+
+#resume a:hover
+{
+  color: #060;
+  text-decoration: underline;
+  background-color: #CCC;
+}
+
+/* Styles for text */
+
+#resume h1, h2, h3, h4, h5, h6 { margin: 0; }
+
+#resume h1
+{
+  font-size: 14pt;
+  line-height: 20pt;
+  margin-bottom:10px;
+}
+
+#resume h2
+{
+  font-size: 12pt;
+  line-height: 14pt;
+}
+
+#resume h3
+{
+  font-size: 10pt;
+  line-height: 14pt;
+  margin: 0 0 0 20px;
+}
+
+#resume p
+{
+  margin: 0 0 0 20px;
+  text-indent: 0;
+  font-size: 10pt;
+  line-height: 14pt;
+}
+
+#resume ul
+{
+  font-size: 10pt;
+  line-height: 14pt;
+  list-style-type: square;
+  list-style-position: outside;
+  margin-top: 0;
+  margin-bottom:0;
+}
+
+/* ID resume is for the box */
+
+#resume
+{
+  border: 4px green dotted;
+  margin: 50px;
+  padding: 30px;
+  width: 600px;
+}
+
+/* Clear resets float orientation */
+
+.clear
+{
+clear:both;
+}
+
+/* Title is for the left column */
+
+.title
+{
+  width: 140px;
+  float: left;
+  padding: 20px 0 0 0;
+  margin: 20px 0 0 0;
+  border-top: 1px #000 solid;
+}
+
+/* Info is for the right column */
+
+.info
+{
+  width: 400px;
+  float: left;
+  padding: 20px 0 0 0;
+  margin: 20px 0 0 0;
+  border-top: 1px #000 solid;
+}

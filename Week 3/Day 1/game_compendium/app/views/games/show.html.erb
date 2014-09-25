@@ -1,0 +1,11 @@
+<h1><%= @game.title %></h1> - <h3><%= @game.genre %></h3>
+<ul>
+  <li>
+    <%= @game.description %>
+  </li>
+</ul>
+<br>
+<hr><hr>
+<%= link_to "Edit", edit_game_path(@game.id) %> | 
+<%= link_to "Delete", game_path(@game), method: :delete %>
+<%= link_to "Back", root_path %>

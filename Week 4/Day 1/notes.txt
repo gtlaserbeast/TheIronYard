@@ -1,0 +1,40 @@
+polymorphic relationships pass both a type and an id
+
+
+class Comment < ActiveRecord::Base
+  belongs_to :something-able, polymorphic: true
+end
+
+add type and id to comment
+In your migrate, assign datatypes to be passed in
+
+
+
+in rails console
+
+
+car.find 6
+
+c = _
+
+"_" is whatever was last entered into the console
+
+
+c.comments.new generates a new comment with type and id based on the previously defined variable 'c'
+
+whitelisting parameters is called strong params in rails
+
+
+create doctors 
+
+doctors can be created on and off of patients/hospitals
+
+
+
+bonus: implement a search function using custom methods
+
+
+reybellion
+dewbee
+yshke
+skippyisforyou
